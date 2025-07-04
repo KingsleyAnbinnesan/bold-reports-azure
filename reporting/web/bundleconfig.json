@@ -1926,7 +1926,7 @@
       "wwwroot/Styles/Bootstrap/bootstrap-select.css",
       "wwwroot/Styles/scss/pages/Admin/SystemSettings.css"
     ],
-    "integrity": "sha384-tyrQv+r1CZlirKnd3i4cUcwehlPKdf3G23Ja5oHKVBKAk+FLPMHpnUX8DnEQzpVg"
+    "integrity": "sha384-wpjIvo+mNKZ+CMDmMDCdURw3VUpkrwN7YTav+eB62asqDJAoERNrUGQGTdOI0VrV"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/storage-page.min.js",
@@ -1951,7 +1951,7 @@
       "wwwroot/Styles/Editor/easymde.min.css",
       "wwwroot/Styles/scss/pages/Grid.css"
     ],
-    "integrity": "sha384-zMWWPI321eAuFD8g6l7foxNFrpdm0pQ3gDecJ0hGfXCy7dru+614xZVzdJ7h4A4k"
+    "integrity": "sha384-U+wjsypEBsfk86Eg95lrbrfGKk/56F9CzRzfGSVIfUa8POwxMLTC7HFFjjiN4mcF"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/site-settings.min.js",
@@ -3265,7 +3265,7 @@
       "wwwroot/Styles/scss/pages/LoaderBlue.css",
       "wwwroot/Styles/scss/pages/Components/Buttons.css"
     ],
-    "integrity": "sha384-vy9PsBL0CgKX4QEZEm2/PUEAC5j6+O44moP89rKBHM+VLOkP5e0QpzuSm8doqckh"
+    "integrity": "sha384-xFoJADjw6AvQ2FkO2fmcs4BjOyFRTkOHS/PIrRyLtDZ22BwXp8dn5cVZEXAQh85J"
   },
   {
     "outputFileName": "wwwroot/cdn/css/dataconnector-settings.min.css",

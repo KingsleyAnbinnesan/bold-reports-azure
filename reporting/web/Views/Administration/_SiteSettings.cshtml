@@ -50,13 +50,11 @@
                                 <input type="text" id="site-base-url" name="site-base-url" class="form-control site-url-fields" placeholder="[[[Enter your URL]]]" value="@ViewBag.authority" data-original-value="@ViewBag.authority" disabled />
                             </div>
                         </div>
-                    </div>
-
                         @if (isWindowsPlatform)
                         {
-                        <div class="row mb-3" id="help_text" style="display: @ViewBag.icon">
+                        <div class="col-4 mb-3" id="help_text" style="display: @ViewBag.icon">
                             <div class="col-sm-2"></div>
-                            <div class="col-sm-6 d-flex align-items-start gap-2">
+                            <div class="col-4 d-flex align-items-end gap-2" style="margin-top:10px">
                                 <span id="error_icon" class="su su-info info-settings" title=""></span>
                                 <div class="dropdown-menu show p-2" id="ssl-help-message" style="display: none">
                                     [[[The server needs to be hosted in IIS with a valid SSL certificate assigned to it.]]]
@@ -66,10 +64,12 @@
                                             [[[Click]]] <a href="@(ServerAppConfig.AppSettings.Documentation.BaseUri + helpSiteUrl)" target="_blank">[[[here]]]</a> [[[for more details.]]]
                                         </span>
                                     }
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         }
+                    </div>
+                    
                     <div class="row mb-3">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-4">
