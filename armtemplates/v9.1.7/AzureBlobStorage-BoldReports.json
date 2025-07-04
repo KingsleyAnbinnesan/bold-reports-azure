@@ -30,7 +30,7 @@
   "variables": {
     "WebAppSvcPlanWorkerSize": "0",
     "WebAppSvcPlanSKU": "Basic",
-    "WebAppSvcPlanName": "SyncfusionAppthree"
+    "WebAppSvcPlanName": "SyncfusionReleasetesting"
   },
   "resources": [
     {
