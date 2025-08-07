@@ -770,7 +770,7 @@ SignatureDialog.Locale['tr-TR'] = {
     ariaLabelCrop: 'İmzayı kırp',
     ariaLabelClear: 'İmzayı temizle'
 };
-SignatureDialog.Locale['zh-CN'] = {
+SignatureDialog.Locale['zh-Hans'] = {
     cancel: '取消',
     closeToolTip: '关闭',
     ok: '确定',

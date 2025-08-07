@@ -431,7 +431,7 @@ EJPdfDocument.Locale['tr-TR'] = {
         title: 'PDF'
     }
 };
-EJPdfDocument.Locale['zh-CN'] = {
+EJPdfDocument.Locale['zh-Hans'] = {
     source: '来源',
     sourceTypes: {
         url: 'URL',

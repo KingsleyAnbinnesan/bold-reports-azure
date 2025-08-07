@@ -503,7 +503,7 @@ EJHtmlDocument.Locale['tr-TR'] = {
         title: 'Html'
     }
 };
-EJHtmlDocument.Locale['zh-CN'] = {
+EJHtmlDocument.Locale['zh-Hans'] = {
     source: '来源',
     sourceTypes: {
         content: '内容',
