@@ -1315,7 +1315,7 @@ EJShape.Locale['tr-TR'] = {
         title: 'Şekil'
     }
 };
-EJShape.Locale['zh-CN'] = {
+EJShape.Locale['zh-Hans'] = {
     basicSettings: {
         categoryName: '基本设置',
         shapeType: '形状',

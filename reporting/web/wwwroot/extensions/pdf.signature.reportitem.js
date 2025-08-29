@@ -920,7 +920,7 @@ EJPDFSignature.Locale['tr-TR'] = {
         title: 'PDF İmzası'
     }
 };
-EJPDFSignature.Locale['zh-CN'] = {
+EJPDFSignature.Locale['zh-Hans'] = {
     categoryBasicSettings: '基本设置',
     basicSettingsLabels: {
         reason: '显示原因',
