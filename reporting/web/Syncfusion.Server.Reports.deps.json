@@ -2254,6 +2254,22 @@
       },
       "Microsoft.NETCore.Platforms/1.1.1": {},
       "Microsoft.NETCore.Targets/1.1.3": {},
+      "Microsoft.Playwright/1.52.0": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "8.0.0",
+          "System.ComponentModel.Annotations": "5.0.0",
+          "System.Text.Json": "8.0.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Playwright.dll": {
+            "assemblyVersion": "1.52.0.0",
+            "fileVersion": "1.52.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Playwright.dll": {}
+        }
+      },
       "Microsoft.SqlServer.Server/1.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.SqlServer.Server.dll": {
@@ -5031,6 +5047,7 @@
           "BoldReports.Data.WebData": "10.1.12",
           "BoldReports.Net.Core": "10.1.12",
           "Microsoft.CodeAnalysis.Common": "4.12.0",
+          "Microsoft.Playwright": "1.52.0",
           "ProDotNetZip": "1.20.0",
           "PuppeteerSharp": "6.2.0",
           "Renci.SshNet.Async": "1.4.0",
@@ -6979,98 +6996,98 @@
     "Bold.Data.Analytics.Base/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-q/1RoHTFoS3WWJSDV/eet9510Rhz/vDPk09ouO+44TmyAfsO9BBIXfPWzHPYUMtHBSC3O94N6YtpRfICmJG+cA==",
+      "sha512": "sha512-3QLXIPwnYLiEJgfCZNuALrOVfi9THBtfLPgFyxRFXFV5FOScWRcVSKoi+RU2KQdRr8+KmShu6iQ2bsTakjHfXg==",
       "path": "bold.data.analytics.base/10.1.12",
       "hashPath": "bold.data.analytics.base.10.1.12.nupkg.sha512"
     },
     "Bold.Licensing/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8hdpap0Bqo5qy6y5n4EBe6+aH8l/+IDN0P75hCZSUbhr0DLE3RgE5rKR/RTQxXWXwlzh+SpohI//xSsH1peSPA==",
+      "sha512": "sha512-OGhRbE5nNAbIEZXVgNkl6eLvYWxa8v0i4f2Q9OsvU0ftq2Z94YxDkMVpOhQ82ZkVuiUS4drlGBNbvG0IdINPOA==",
       "path": "bold.licensing/10.1.12",
       "hashPath": "bold.licensing.10.1.12.nupkg.sha512"
     },
     "BoldReports.CRI.Barcode/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yBbRlouqOu+4NrHt1HX4C5zhwhGYF7afAD5aA00eZeQ9T9Oe50ydqTn6WREU136IoH3J7RR4/xbV+792Ierf8A==",
+      "sha512": "sha512-ztQNPu+GOQGsteZidNjrOqiXMuaFu1lC80pD0MqS9X1UbpawQQ8fM5jF+4SUa7zms96XaQHaESGzZ2Iy+sgxXw==",
       "path": "boldreports.cri.barcode/10.1.12",
       "hashPath": "boldreports.cri.barcode.10.1.12.nupkg.sha512"
     },
     "BoldReports.CRI.Html/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JP/ks9dWVh6YHQg4IlHtJxKmxmdQy6/OwBbg0WGLocnDu93G33FeYVg6hByW2lb+PfNMf+BSn7AcaJ8+MISUwg==",
+      "sha512": "sha512-Q3umlPwZ7xliEHGv7OrsRfWEg/jYoTxgtnjhjVJ20SyOc1R6aTYupCryyC6lTu92qgO+OopzMJG4OeStwBSs+Q==",
       "path": "boldreports.cri.html/10.1.12",
       "hashPath": "boldreports.cri.html.10.1.12.nupkg.sha512"
     },
     "BoldReports.CRI.Pdf/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8bo3MvsmrN74MrPQr63tOBaOAcbS/Y3JZiyA8lRpRdcXrMDRNTLjuPw176AHTgUru5W0FEy4unTtf8kyBxnaaw==",
+      "sha512": "sha512-PzFoE5jMKn4PGJEigk5ubYfgcabQck9BYFwTWJxZPFeBu6CYthX+gj4obuROMbJVMMHhfY0LXhoZy6v8v20VpA==",
       "path": "boldreports.cri.pdf/10.1.12",
       "hashPath": "boldreports.cri.pdf.10.1.12.nupkg.sha512"
     },
     "BoldReports.CRI.PredictiveAnalytics/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-awwO37JEiIH7Blx+vxAUao/yEOlfZJeM0Ij1b/5h/TWNYrxGHnozN/Fkk9/XGT1AHw90/a9IgrPPyq3M22GmRQ==",
+      "sha512": "sha512-c367d1Bwc3G0ufIvtjXhbfYikI3JGgewOhRAxC040e4EBDj9ykeV5N6wrXQ8HQmWUomgizCngJ28xXBzt5f96Q==",
       "path": "boldreports.cri.predictiveanalytics/10.1.12",
       "hashPath": "boldreports.cri.predictiveanalytics.10.1.12.nupkg.sha512"
     },
     "BoldReports.CRI.Shape/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8EjauthcqK4LxX8vnjm5ROneTA70AbVZjGLTEYMDfebmcqq5gZi0lZMMcEHv8aJxF/Ah8HCV1oasIJYMtVNp/g==",
+      "sha512": "sha512-Px+kKP3IwDSwV6pw9t6zpvE1daO2vv+33e6lwicxtvcUlkxWveHkLECpWva6qAw+HrxdEV16kUCX89vI29IhiA==",
       "path": "boldreports.cri.shape/10.1.12",
       "hashPath": "boldreports.cri.shape.10.1.12.nupkg.sha512"
     },
     "BoldReports.CRI.Signature/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-FjbpMeN5V9DFUvmYuohXpdE26sZITGIros0GhCdY6RHUmklFBQPYfnD3/0Q3/9PomSAVImkKuQ6tkJRB/gYMzg==",
+      "sha512": "sha512-55/pTVIB41x8AVd8kvKNyyECWlebTvKIz9IuEwg9Oa01edzRP02nxjR2VNya0VgLaw3T//0InCrUZWbfGl53ew==",
       "path": "boldreports.cri.signature/10.1.12",
       "hashPath": "boldreports.cri.signature.10.1.12.nupkg.sha512"
     },
     "BoldReports.Data.Csv/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1tnpoigoroSsFkNtg12rNBCkDAzHN26QowMK2kMLCXhZJytTsxwqTWFlWN/EgukMNmH+TWp29fRM9CXagefBmQ==",
+      "sha512": "sha512-cAjV+M6I2b2G99lcjt/jD8D8662kNLAKjOqyYt+r0brBGwblsZqvLJX3DHKRB2pIUNFaBO7gd0/NIoUqhCsOlg==",
       "path": "boldreports.data.csv/10.1.12",
       "hashPath": "boldreports.data.csv.10.1.12.nupkg.sha512"
     },
     "BoldReports.Data.ElasticSearch/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mlnSvaqiBDGX7T9eNjzOTFGJ0ksnwWuTUCng+2Rmahvq383aRJo3Pe0K2vj1d4PUYSz1q8DQrwt3Pmp5SDdf9A==",
+      "sha512": "sha512-yjiftAgiaBcQsAYd3+WTIq9OACMvoER8bGt0SVEbJkitbdsk4zGoj+COylroqr9NQXKHG7aMcOyCReSJ6SHl3w==",
       "path": "boldreports.data.elasticsearch/10.1.12",
       "hashPath": "boldreports.data.elasticsearch.10.1.12.nupkg.sha512"
     },
     "BoldReports.Data.Excel/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OEsVFLnTKQ0pN4+oD25h93AYKEyYN2kf71RJDK3OxBs669kLZwSKHD2XGQAf8CjkkR7TeVNuv+BGrdrJ5UplPg==",
+      "sha512": "sha512-FRwFt9XQ0m0YDIi/DjfHFAxiHrS68AVbC8FonbLiMNGHhQ0lrY4v2pKTctfWqlBeL/TZvuhCZrbb0F2xeYEsMA==",
       "path": "boldreports.data.excel/10.1.12",
       "hashPath": "boldreports.data.excel.10.1.12.nupkg.sha512"
     },
     "BoldReports.Data.SSAS/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xH5vxJ/RDlk5wp+0cwTx2RoeVgLQEXXp+k88jJmNgD4fHbzkpXq58MRXTGYwOSGeSQsTwB3IrxITnb2gjXwrDg==",
+      "sha512": "sha512-0FSLLZO2BuC2jCUt1N5Xn4Ur2HwKtdAxmMeUZrp9ols7h0C1XJ9aMoouF/56sO6gY6zl+B3IRjS5pwq+AAFgFg==",
       "path": "boldreports.data.ssas/10.1.12",
       "hashPath": "boldreports.data.ssas.10.1.12.nupkg.sha512"
     },
     "BoldReports.Data.WebData/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cEpWpq0tZ+9cbxywiEttnbUFhAgxN8PTBPxgGUU0mEDGs1ZPuLIj7hEkR9yYCuP0bWNNEn+PfqCVSLqnN/QxHQ==",
+      "sha512": "sha512-owg9pCCpa6UTPqVR9dPdFDepkZ4x04cvOTHAwvZ+0EFnKtaRmlfAXRU1bhu5UEn7tBwJlcGVad6sQCHBMDoCNA==",
       "path": "boldreports.data.webdata/10.1.12",
       "hashPath": "boldreports.data.webdata.10.1.12.nupkg.sha512"
     },
     "BoldReports.Net.Core/10.1.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RsxfbqaXxGJnfaJ9Xw/Za6W75eXJBQNg3G1v8Z0yl5FNDP0dtbB6VnBl+PHeYiLONWKA3ED3mZSj7TKyz71Rjg==",
+      "sha512": "sha512-dziPSJj/6N3HiK1//MzhU1NHDV+io2CBw9cqf0PWiTCOfry/yNUz7c3tlIkPHzjHDlJoreHOSE24oQ+nE46c3Q==",
       "path": "boldreports.net.core/10.1.12",
       "hashPath": "boldreports.net.core.10.1.12.nupkg.sha512"
     },
@@ -7913,6 +7930,13 @@
       "sha512": "sha512-3Wrmi0kJDzClwAC+iBdUBpEKmEle8FQNsCs77fkiOIw/9oYA07bL1EZNX0kQ2OMN3xpwvl0vAtOCYY3ndDNlhQ==",
       "path": "microsoft.netcore.targets/1.1.3",
       "hashPath": "microsoft.netcore.targets.1.1.3.nupkg.sha512"
+    },
+    "Microsoft.Playwright/1.52.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zH8a7OiXtq8BC6i0yYHAG/DSN8J8/bVyQYVESK7mK1ZJF19eY1ca51BAQpQxzF+Qm/A20x6Rsl8cT+QYXSfxbw==",
+      "path": "microsoft.playwright/1.52.0",
+      "hashPath": "microsoft.playwright.1.52.0.nupkg.sha512"
     },
     "Microsoft.SqlServer.Server/1.0.0": {
       "type": "package",
