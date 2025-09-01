@@ -427,7 +427,7 @@ EJSignature.Locale['tr-TR'] = {
         title: 'İmza'
     }
 };
-EJSignature.Locale['zh-CN'] = {
+EJSignature.Locale['zh-Hans'] = {
     signatureLabel: '签名',
     categoryBasicSettings: '基本设置',
     btnText: '绘制签名',
