@@ -1,6 +1,6 @@
 ﻿@using Syncfusion.Server.Base.Helpers
 
-@model ReportUploadResponse
+@model List<ReportUploadResponse>
 @{
     Layout = null;
     var isUploaded = ViewData["IsUploaded"] != null ? Convert.ToBoolean(ViewData["IsUploaded"]) : false;
@@ -28,9 +28,6 @@
     </environment>
     <script nonce="@Context.Items["ScriptNonce"]">
         $(function () {
-            if (window.parent.$("#rdl_filename").val() != "" && window.parent.$("#rdl_filename").val() != undefined) {
-                $("#upload_browse_file").val(window.parent.$("#rdl_filename").val());
-            }
             window.parent.parent.$('#report_popup_wrapper').ejWaitingPopup("hide");
             $(document).on("change", "#browse_file", function () {
                 parent.$("#uploadValidation").html("");
@@ -95,21 +92,15 @@
         @Html.AntiForgeryToken()
         <label for="browse_file" class="trigger-file-input-wrapper-report"></label>
         <span>
-            <input id='upload_browse_file' class='form-control input-fields text' readonly name='uploadedFileName' type='text' value="@ViewBag.FileName" tabindex="-1">
+            <input id='upload_browse_file' class='form-control input-fields text' readonly name='uploadedFileName' type='text' value="@string.Join(" , ", ViewBag.FileName)" tabindex="-1">
         </span>
         <div class="d-flex justify-content-start">
         <div class='col-12 fileUpload btn btn-default'>
-            <span>...</span><input id='browse_file' title="[[[No file selected.]]]" class='browse-button upload-btn' type='file' accept='.rdl' name="file">
+            <span>...</span><input id='browse_file' title="[[[No file selected.]]]" class='browse-button upload-btn' type='file' accept='.rdl' name="file" multiple>
+            <input type="hidden" id='multipleUpload' value="@(ViewBag.IsMultipleUpload.ToString().ToLower())" tabindex="-1">
+            <input type="hidden" id='tempPath' value='@(ViewBag.TempPath.ToString())' tabindex="-1">
         </div>
         </div>
-        @if (isUploaded)
-        {
-            <input type="hidden" name="previousFileName" value="@Model.UploadedReportName" />
-        }
-        else
-        {
-            <input type="hidden" name="previousFileName" value="none" />
-        }
     </form>
 </body>
 </html>
@@ -124,6 +115,24 @@
             window.parent.editReportData.IsDataSourceChanged = false;
         }
         window.parent.parent.$("#report_popup_wrapper").ejWaitingPopup("show");
+
+        var files = $("#browse_file")[0].files;
+        if (files.length > 0) {
+            var totalSize = 0;
+            for (var i = 0; i < files.length; i++) {
+                totalSize += files[i].size;
+            }
+            var maxTotalSize = 75 * 1024 * 1024;
+            if (totalSize > maxTotalSize) {
+                alert('Uploaded files size must not exceed 75 MB.');
+                $("#browse_file").val('');
+                window.parent.parent.$("#report_popup_wrapper").ejWaitingPopup("hide");
+                $("#upload_browse_file").val('');
+                parent.onCloseMessageBox();
+                return false;
+            }
+        }
+        return true;
     }
 
     $(document).ready(function () {
@@ -143,8 +152,9 @@
 @if (isUploaded)
 {
     <script nonce="@Context.Items["ScriptNonce"]">
+        var isUploaded = @Json.Serialize(isUploaded);
         $(function () {
-            window.parent.reportUploadComplete(@Json.Serialize(Model));
+            window.parent.reportUploadComplete(@Json.Serialize(Model), isUploaded);
         });
     </script>
 }

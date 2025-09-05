@@ -146,7 +146,8 @@ var EJHtmlDocument = (function () {
                         'Value': this.getPropertyVal('DocumentValue'),
                         'ItemType': 'ComboBox',
                         'SourceType': 'Fields',
-                        'EnableExpression': true
+                        'EnableExpression': true,
+                        'EnableSearch': true
                     },
                     {
                         'ItemId': 'htmlsizing',
@@ -503,7 +504,7 @@ EJHtmlDocument.Locale['tr-TR'] = {
         title: 'Html'
     }
 };
-EJHtmlDocument.Locale['zh-CN'] = {
+EJHtmlDocument.Locale['zh-Hans'] = {
     source: '来源',
     sourceTypes: {
         content: '内容',
@@ -521,6 +522,111 @@ EJHtmlDocument.Locale['zh-CN'] = {
     toolTip: {
         requirements: '显示任何 HTML 标记（或）URL',
         description: '此报告项目用于处理 HTML 标记文本和 URL',
+        title: 'Html'
+    }
+};
+EJHtmlDocument.Locale['he-IL'] = {
+    source: 'מקור',
+    sourceTypes: {
+        content: 'תוכן',
+        url: 'כתובת URL',
+        database: 'מסד נתונים',
+    },
+    categoryBasicSettings: 'הגדרות בסיסיות',
+    sizing: 'גודל',
+    sizeTypes: {
+        auto: 'גודל אוטומטי',
+        fit: 'התאם',
+        proportional: 'התאם פרופורציונלי',
+        clip: 'חתוך'
+    },
+    toolTip: {
+        requirements: 'הצג סימון HTML או כתובת URL כלשהי',
+        description: 'פריט דוח זה משמש לעיבוד תוכן HTML וכתובות URL',
+        title: 'HTML'
+    }
+};
+EJHtmlDocument.Locale['ja-JP'] = {
+    source: 'ソース',
+    sourceTypes: {
+        content: 'コンテンツ',
+        url: 'URL',
+        database: 'データベース',
+    },
+    categoryBasicSettings: '基本設定',
+    sizing: 'サイズ設定',
+    sizeTypes: {
+        auto: '自動サイズ',
+        fit: 'フィット',
+        proportional: '比例フィット',
+        clip: 'クリップ'
+    },
+    toolTip: {
+        requirements: '任意のHTMLマークアップまたはURLを表示',
+        description: 'このレポート項目はHTMLマークアップテキストとURLを処理します',
+        title: 'Html'
+    }
+};
+EJHtmlDocument.Locale['pt-PT'] = {
+    source: 'Fonte',
+    sourceTypes: {
+        content: 'Conteúdo',
+        url: 'URL',
+        database: 'Base de dados',
+    },
+    categoryBasicSettings: 'Configurações básicas',
+    sizing: 'Dimensionamento',
+    sizeTypes: {
+        auto: 'Tamanho automático',
+        fit: 'Ajustar',
+        proportional: 'Ajuste proporcional',
+        clip: 'Recortar'
+    },
+    toolTip: {
+        requirements: 'Exibir qualquer marcação HTML ou URL',
+        description: 'Este item de relatório é usado para processar texto de marcação HTML e URL',
+        title: 'Html'
+    }
+};
+EJHtmlDocument.Locale['ru-RU'] = {
+    source: 'Источник',
+    sourceTypes: {
+        content: 'Содержимое',
+        url: 'URL',
+        database: 'База данных',
+    },
+    categoryBasicSettings: 'Основные настройки',
+    sizing: 'Размер',
+    sizeTypes: {
+        auto: 'Автоматический размер',
+        fit: 'Подогнать',
+        proportional: 'Пропорционально подогнать',
+        clip: 'Обрезать'
+    },
+    toolTip: {
+        requirements: 'Показать любой HTML-код или URL',
+        description: 'Этот элемент отчета используется для обработки текста HTML-кода и URL',
+        title: 'Html'
+    }
+};
+EJHtmlDocument.Locale['zh-Hant'] = {
+    source: '來源',
+    sourceTypes: {
+        content: '內容',
+        url: 'URL',
+        database: '資料庫',
+    },
+    categoryBasicSettings: '基本設定',
+    sizing: '調整大小',
+    sizeTypes: {
+        auto: '自動大小',
+        fit: '適合',
+        proportional: '比例適合',
+        clip: '裁剪'
+    },
+    toolTip: {
+        requirements: '顯示任何 HTML 標記或 URL',
+        description: '此報告項目用於處理 HTML 標記文字和 URL',
         title: 'Html'
     }
 };

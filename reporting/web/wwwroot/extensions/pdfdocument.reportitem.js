@@ -124,7 +124,8 @@ var EJPdfDocument = (function () {
                         'Value': this.getPropertyVal('DocumentValue'),
                         'ItemType': 'ComboBox',
                         'SourceType': 'Fields',
-                        'EnableExpression': true
+                        'EnableExpression': true,
+                        'EnableSearch': true
                     },
                     {
                         'ItemId': 'pdfsizing',
@@ -431,7 +432,7 @@ EJPdfDocument.Locale['tr-TR'] = {
         title: 'PDF'
     }
 };
-EJPdfDocument.Locale['zh-CN'] = {
+EJPdfDocument.Locale['zh-Hans'] = {
     source: '来源',
     sourceTypes: {
         url: 'URL',
@@ -446,6 +447,96 @@ EJPdfDocument.Locale['zh-CN'] = {
     toolTip: {
         requirements: '显示任何 PDF 文件',
         description: '在报告中显示 PDF 文档的内容',
+        title: 'PDF'
+    }
+};
+EJPdfDocument.Locale['he-IL'] = {
+    source: 'מקור',
+    sourceTypes: {
+        url: 'כתובת URL',
+        database: 'מסד נתונים',
+    },
+    categoryBasicSettings: 'הגדרות בסיסיות',
+    sizing: 'גודל',
+    sizeTypes: {
+        auto: 'גודל אוטומטי',
+        fitPage: 'התאם לגודל הדף'
+    },
+    toolTip: {
+        requirements: 'הצגת קובץ PDF כלשהו',
+        description: 'הצגת תוכן מסמך ה-PDF בדוח',
+        title: 'PDF'
+    }
+};
+EJPdfDocument.Locale['ja-JP'] = {
+    source: 'ソース',
+    sourceTypes: {
+        url: 'URL',
+        database: 'データベース',
+    },
+    categoryBasicSettings: '基本設定',
+    sizing: 'サイズ設定',
+    sizeTypes: {
+        auto: '自動サイズ',
+        fitPage: 'ページサイズに合わせる'
+    },
+    toolTip: {
+        requirements: '任意のPDFファイルを表示',
+        description: 'レポートでPDFドキュメントの内容を表示します',
+        title: 'PDF'
+    }
+};
+EJPdfDocument.Locale['pt-PT'] = {
+    source: 'Fonte',
+    sourceTypes: {
+        url: 'URL',
+        database: 'Base de dados',
+    },
+    categoryBasicSettings: 'Configurações básicas',
+    sizing: 'Dimensionamento',
+    sizeTypes: {
+        auto: 'Tamanho automático',
+        fitPage: 'Ajustar ao tamanho da página'
+    },
+    toolTip: {
+        requirements: 'Exibir qualquer ficheiro PDF',
+        description: 'Exibir o conteúdo do documento PDF no relatório',
+        title: 'PDF'
+    }
+};
+EJPdfDocument.Locale['ru-RU'] = {
+    source: 'Источник',
+    sourceTypes: {
+        url: 'URL',
+        database: 'База данных',
+    },
+    categoryBasicSettings: 'Основные настройки',
+    sizing: 'Размер',
+    sizeTypes: {
+        auto: 'Автоматический размер',
+        fitPage: 'Подогнать под размер страницы'
+    },
+    toolTip: {
+        requirements: 'Показать любой PDF-файл',
+        description: 'Показать содержимое PDF-документа в отчете',
+        title: 'PDF'
+    }
+};
+EJPdfDocument.Locale['zh-Hant'] = {
+    source: '來源',
+    sourceTypes: {
+        url: 'URL',
+        database: '資料庫',
+    },
+    categoryBasicSettings: '基本設定',
+    sizing: '調整大小',
+    sizeTypes: {
+        auto: '自動大小',
+        fitPage: '符合頁面大小'
+    },
+    toolTip: {
+        requirements: '顯示任何 PDF 檔案',
+        description: '在報告中顯示 PDF 文件內容',
         title: 'PDF'
     }
 };

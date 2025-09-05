@@ -107,6 +107,9 @@ var EJQRBarcode = (function () {
                 newValue = this.getPdfErrCorrLevel(newValue);
                 this.updatePropertyVal('CorrectionLevel', newValue);
                 break;
+            case 'BarcodeRotation':
+                this.updatePropertyVal(name, newValue ? newValue : BarcodeRotation.None);
+                break;
         }
     };
     EJQRBarcode.prototype.updatePropertyUIValue = function (name, value) {
@@ -126,6 +129,10 @@ var EJQRBarcode = (function () {
                 break;
             case 'Pdf417CorrectionLevel':
                 this.propertyPanel.updatePropertyUIValue('pdferrcorrlevel', value, customId);
+                break;
+            case 'BarcodeRotation':
+                this.propertyPanel.updatePropertyUIValue('barcoderotation', value, customId);
+                break;
         }
     };
     EJQRBarcode.prototype.onPositionChanged = function (top, left) {
@@ -216,6 +223,15 @@ var EJQRBarcode = (function () {
                         'ItemType': 'DropDown',
                         'EnableExpression': false,
                         'ValueList': this.getPDF417CorrectionLevel()
+                    },
+                    {
+                        'ItemId': 'barcoderotation',
+                        'Name': 'BarcodeRotation',
+                        'DisplayName': 'barcodeRotationLabel',
+                        'Value': this.getPropertyVal('BarcodeRotation'),
+                        'ItemType': 'DropDown',
+                        'EnableExpression': false,
+                        'ValueList': this.getRotationLevel()
                     }
                 ]
             }
@@ -284,6 +300,22 @@ var EJQRBarcode = (function () {
             },
             {
                 text: 'high', value: 'High'
+            }
+        ];
+    };
+    EJQRBarcode.prototype.getRotationLevel = function () {
+        return [
+            {
+                text: 'none', value: 'None'
+            },
+            {
+                text: 'rotate90degrees', value: 'Rotate90Degrees'
+            },
+            {
+                text: 'rotate180degrees', value: 'Rotate180Degrees'
+            },
+            {
+                text: 'rotate270degrees', value: 'Rotate270Degrees'
             }
         ];
     };
@@ -369,6 +401,7 @@ var EJQRBarcode = (function () {
             this.setPropertyVal('BarcodeType', 'QRBarcode');
             this.setPropertyVal('DisplayBarcodeText', 'true');
             this.setPropertyVal('CorrectionLevel', 'Low');
+            this.setPropertyVal('BarcodeRotation', BarcodeRotation.None);
         }
         return this.customJSON;
     };
@@ -488,6 +521,31 @@ var EJQRBarcode = (function () {
                     return barcodeLocale.pdf417CorrectionLevel.auto;
                 }
                 return defaultLocale.pdf417CorrectionLevel.auto;
+            case 'barcoderotationlabel':
+                if (barcodeLocale && barcodeLocale.barcodeRotationLabel) {
+                    return barcodeLocale.barcodeRotationLabel;
+                }
+                return defaultLocale.barcodeRotationLabel;
+            case 'none':
+                if (barcodeLocale && barcodeLocale.barcodeRotation.none) {
+                    return barcodeLocale.barcodeRotation.none;
+                }
+                return defaultLocale.barcodeRotation.none;
+            case 'rotate90degrees':
+                if (barcodeLocale && barcodeLocale.barcodeRotation.rotate90degrees) {
+                    return barcodeLocale.barcodeRotation.rotate90degrees;
+                }
+                return defaultLocale.barcodeRotation.rotate90degrees;
+            case 'rotate180degrees':
+                if (barcodeLocale && barcodeLocale.barcodeRotation.rotate180degrees) {
+                    return barcodeLocale.barcodeRotation.rotate180degrees;
+                }
+                return defaultLocale.barcodeRotation.rotate180degrees;
+            case 'rotate270degrees':
+                if (barcodeLocale && barcodeLocale.barcodeRotation.rotate270degrees) {
+                    return barcodeLocale.barcodeRotation.rotate270degrees;
+                }
+                return defaultLocale.barcodeRotation.rotate270degrees;
         }
         return text;
     };
@@ -545,6 +603,13 @@ EJQRBarcode.Locale['en-US'] = {
         level6: 'Level6',
         level7: 'Level7',
         level8: 'Level8',
+    },
+    barcodeRotationLabel: 'Rotation',
+    barcodeRotation: {
+        none: 'None',
+        rotate90degrees: '90',
+        rotate180degrees: '180',
+        rotate270degrees: '270'
     }
 };
 EJQRBarcode.Locale['fr-FR'] = {
@@ -575,5 +640,234 @@ EJQRBarcode.Locale['fr-FR'] = {
         level6: 'Niveau6',
         level7: 'Niveau7',
         level8: 'Niveau8',
+    },
+    barcodeRotationLabel: 'Rotation',
+    barcodeRotation: {
+        none: 'Aucun',
+        rotate90degrees: '90',
+        rotate180degrees: '180',
+        rotate270degrees: '270'
+    }
+};
+EJQRBarcode.Locale['he-IL'] = {
+    barcodeType: 'סוג סימנים',
+    barcodeValue: 'טקסט',
+    textVisibility: 'הצגת טקסט',
+    categoryBasicSettings: 'הגדרות בסיסיות',
+    toolTip: {
+        requirements: 'הצג כל סוג של ברקוד.',
+        description: 'מציג ברקודים.',
+        title: 'ברקוד QR'
+    },
+    correctionLabel: 'רמת תיקון',
+    qrcodeCorrectionLevel: {
+        low: 'נמוכה',
+        medium: 'בינונית',
+        quartile: 'רמה רבעית',
+        high: 'גבוהה'
+    },
+    pdf417CorrectionLevel: {
+        auto: 'אוטומטית',
+        level0: 'רמה 0',
+        level1: 'רמה 1',
+        level2: 'רמה 2',
+        level3: 'רמה 3',
+        level4: 'רמה 4',
+        level5: 'רמה 5',
+        level6: 'רמה 6',
+        level7: 'רמה 7',
+        level8: 'רמה 8',
+    },
+    barcodeRotationLabel: 'סיבוב',
+    barcodeRotation: {
+        none: 'ללא',
+        rotate90degrees: '90',
+        rotate180degrees: '180',
+        rotate270degrees: '270'
+    }
+};
+EJQRBarcode.Locale['ja-JP'] = {
+    barcodeType: 'シンボロジータイプ',
+    barcodeValue: 'テキスト',
+    textVisibility: 'テキストの表示',
+    categoryBasicSettings: '基本設定',
+    toolTip: {
+        requirements: 'すべてのバーコードタイプを表示します。',
+        description: 'バーコードを表示します。',
+        title: 'QRバーコード'
+    },
+    correctionLabel: '訂正レベル',
+    qrcodeCorrectionLevel: {
+        low: '低',
+        medium: '中',
+        quartile: '四分位',
+        high: '高'
+    },
+    pdf417CorrectionLevel: {
+        auto: '自動',
+        level0: 'レベル0',
+        level1: 'レベル1',
+        level2: 'レベル2',
+        level3: 'レベル3',
+        level4: 'レベル4',
+        level5: 'レベル5',
+        level6: 'レベル6',
+        level7: 'レベル7',
+        level8: 'レベル8',
+    },
+    barcodeRotationLabel: '回転',
+    barcodeRotation: {
+        none: 'なし',
+        rotate90degrees: '90',
+        rotate180degrees: '180',
+        rotate270degrees: '270'
+    }
+};
+EJQRBarcode.Locale['pt-PT'] = {
+    barcodeType: 'Tipo de simbologia',
+    barcodeValue: 'Texto',
+    textVisibility: 'Visibilidade do texto',
+    categoryBasicSettings: 'Configurações básicas',
+    toolTip: {
+        requirements: 'Exibe qualquer tipo de código de barras.',
+        description: 'Exibe os códigos de barras.',
+        title: 'Código QR'
+    },
+    correctionLabel: 'Nível de correção',
+    qrcodeCorrectionLevel: {
+        low: 'Baixo',
+        medium: 'Médio',
+        quartile: 'Quartil',
+        high: 'Alto'
+    },
+    pdf417CorrectionLevel: {
+        auto: 'Automático',
+        level0: 'Nível0',
+        level1: 'Nível1',
+        level2: 'Nível2',
+        level3: 'Nível3',
+        level4: 'Nível4',
+        level5: 'Nível5',
+        level6: 'Nível6',
+        level7: 'Nível7',
+        level8: 'Nível8',
+    },
+    barcodeRotationLabel: 'Rotação',
+    barcodeRotation: {
+        none: 'Nenhuma',
+        rotate90degrees: '90',
+        rotate180degrees: '180',
+        rotate270degrees: '270'
+    }
+};
+EJQRBarcode.Locale['ru-RU'] = {
+    barcodeType: 'Тип символики',
+    barcodeValue: 'Текст',
+    textVisibility: 'Отображение текста',
+    categoryBasicSettings: 'Основные настройки',
+    toolTip: {
+        requirements: 'Отображает любой тип штрихкода.',
+        description: 'Отображает штрихкоды.',
+        title: 'QR-код'
+    },
+    correctionLabel: 'Уровень коррекции',
+    qrcodeCorrectionLevel: {
+        low: 'Низкий',
+        medium: 'Средний',
+        quartile: 'Квартиль',
+        high: 'Высокий'
+    },
+    pdf417CorrectionLevel: {
+        auto: 'Авто',
+        level0: 'Уровень0',
+        level1: 'Уровень1',
+        level2: 'Уровень2',
+        level3: 'Уровень3',
+        level4: 'Уровень4',
+        level5: 'Уровень5',
+        level6: 'Уровень6',
+        level7: 'Уровень7',
+        level8: 'Уровень8',
+    },
+    barcodeRotationLabel: 'Вращение',
+    barcodeRotation: {
+        none: 'Нет',
+        rotate90degrees: '90',
+        rotate180degrees: '180',
+        rotate270degrees: '270'
+    }
+};
+EJQRBarcode.Locale['zh-Hans'] = {
+    barcodeType: '符号类型',
+    barcodeValue: '文本',
+    textVisibility: '文本可见性',
+    categoryBasicSettings: '基本设置',
+    toolTip: {
+        requirements: '显示任何条码类型。',
+        description: '显示条码。',
+        title: '二维码'
+    },
+    correctionLabel: '纠错级别',
+    qrcodeCorrectionLevel: {
+        low: '低',
+        medium: '中',
+        quartile: '四分位',
+        high: '高'
+    },
+    pdf417CorrectionLevel: {
+        auto: '自动',
+        level0: '级别0',
+        level1: '级别1',
+        level2: '级别2',
+        level3: '级别3',
+        level4: '级别4',
+        level5: '级别5',
+        level6: '级别6',
+        level7: '级别7',
+        level8: '级别8',
+    },
+    barcodeRotationLabel: '旋转',
+    barcodeRotation: {
+        none: '无',
+        rotate90degrees: '90',
+        rotate180degrees: '180',
+        rotate270degrees: '270'
+    }
+};
+EJQRBarcode.Locale['zh-Hant'] = {
+    barcodeType: '符號類型',
+    barcodeValue: '文字',
+    textVisibility: '文字可見性',
+    categoryBasicSettings: '基本設定',
+    toolTip: {
+        requirements: '顯示任何條碼類型。',
+        description: '顯示條碼。',
+        title: '二維碼'
+    },
+    correctionLabel: '糾錯等級',
+    qrcodeCorrectionLevel: {
+        low: '低',
+        medium: '中',
+        quartile: '四分位',
+        high: '高'
+    },
+    pdf417CorrectionLevel: {
+        auto: '自動',
+        level0: '等級0',
+        level1: '等級1',
+        level2: '等級2',
+        level3: '等級3',
+        level4: '等級4',
+        level5: '等級5',
+        level6: '等級6',
+        level7: '等級7',
+        level8: '等級8'
+    },
+    barcodeRotationLabel: '旋轉',
+    barcodeRotation: {
+        none: '無',
+        rotate90degrees: '90',
+        rotate180degrees: '180',
+        rotate270degrees: '270'
     }
 };

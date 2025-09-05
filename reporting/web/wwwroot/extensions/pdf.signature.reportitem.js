@@ -27,7 +27,7 @@ var EJPDFSignature = (function () {
     };
     EJPDFSignature.prototype.renderPDFSignature = function () {
         var canDataConfig = this.booleanValue(this.getPropertyValue(this.customJSON.CustomProperties, 'DataConfig'));
-        var bgColor = this.customJSON.Style.BackgroundColor === 'Transparent' ? 'White' : this.customJSON.Style.BackgroundColor;
+        var bgColor = (this.customJSON.Style.BackgroundColor === 'Transparent' || this.customJSON.Style.BackgroundColor === '#00ffffff') ? 'White' : this.customJSON.Style.BackgroundColor;
         this.customItemDiv = this.buildElement('div', 'customitem e-rptdesigner-pdfsign', '', {}, { 'background-color': canDataConfig ? bgColor : 'Transparent' });
         var isSignedName = this.booleanValue(this.getPropertyValue(this.customJSON.CustomProperties, 'SignedName'));
         var isContactInfo = this.booleanValue(this.getPropertyValue(this.customJSON.CustomProperties, 'ContactInfo'));
@@ -176,7 +176,7 @@ var EJPDFSignature = (function () {
         defaultDiv.css('display', value ? 'none' : 'flex');
         configDiv.css('display', value ? 'flex' : 'none');
         this.updatePropertyVal('DataConfig', value.toString());
-        this.customItemDiv.css('background-color', value ? this.customJSON.Style.BackgroundColor === 'Transparent' ? 'white' : this.customJSON.Style.BackgroundColor : 'Transparent');
+        this.customItemDiv.css('background-color', value ? (this.customJSON.Style.BackgroundColor === 'Transparent' || this.customJSON.Style.BackgroundColor === '#00ffffff') ? 'white' : this.customJSON.Style.BackgroundColor : 'Transparent');
         if (value && this.hasDesignerInstance(this.instance)) {
             var targets = this.designPanel.designArea.find('.e-customitem .e-rptdesigner-pdfsign');
             targets.toArray().forEach(function (targetElement) {
@@ -231,7 +231,7 @@ var EJPDFSignature = (function () {
                 break;
             case 'backgroundcolor':
                 var showData = this.booleanValue(this.getPropertyValue(this.customJSON.CustomProperties, 'DataConfig'));
-                var color = showData ? newValue === 'Transparent' ? 'White' : newValue : 'Transparent';
+                var color = showData ? (newValue === 'Transparent' || newValue === '#ffffff00') ? 'White' : newValue : 'Transparent';
                 this.customItemDiv.css('background-color', color);
                 break;
         }
@@ -920,7 +920,7 @@ EJPDFSignature.Locale['tr-TR'] = {
         title: 'PDF İmzası'
     }
 };
-EJPDFSignature.Locale['zh-CN'] = {
+EJPDFSignature.Locale['zh-Hans'] = {
     categoryBasicSettings: '基本设置',
     basicSettingsLabels: {
         reason: '显示原因',
@@ -948,5 +948,155 @@ EJPDFSignature.Locale['zh-CN'] = {
         requirements: '将报告项添加到设计区域。',
         description: '此报告项用于添加 PDF 签名。',
         title: 'PDF 签名'
+    }
+};
+EJPDFSignature.Locale['he-IL'] = {
+    categoryBasicSettings: 'הגדרות בסיסיות',
+    basicSettingsLabels: {
+        reason: 'הצג סיבה',
+        location: 'הצג מיקום',
+        date: 'הצג תאריך נוכחי',
+        signatureLabel: 'חתימה',
+        btnText: 'צייר',
+        showdata: 'הצג נתונים',
+        contactInfo: 'הצג פרטי קשר',
+        signedName: 'הצג שם חתום',
+    },
+    designPanelLabels: {
+        reason: 'סיבת החתימה שלך',
+        location: 'מיקום החתימה שלך',
+        defaultText: 'חתימה דיגיטלית על PDF',
+        contactInfo: 'פרטי הקשר שלך',
+        signedName: 'נחתם דיגיטלית על ידי שמך הנפוץ',
+        reasonLabel: 'סיבה',
+        locationLabel: 'מיקום',
+        contactInfoLabel: 'פרטי קשר',
+        signedNameLabel: 'שם',
+        dateLabel: 'תאריך'
+    },
+    toolTip: {
+        requirements: 'הוסף פריט דוח לאזור המעצב.',
+        description: 'פריט דוח זה משמש להוספת חתימה על PDF.',
+        title: 'חתימה על PDF'
+    }
+};
+EJPDFSignature.Locale['ja-JP'] = {
+    categoryBasicSettings: '基本設定',
+    basicSettingsLabels: {
+        reason: '理由を表示',
+        location: '場所を表示',
+        date: '現在の日付を表示',
+        signatureLabel: '署名',
+        btnText: '描画',
+        showdata: 'データを表示',
+        contactInfo: '連絡先情報を表示',
+        signedName: '署名者名を表示',
+    },
+    designPanelLabels: {
+        reason: '署名理由',
+        location: '署名場所',
+        defaultText: 'デジタルPDF署名',
+        contactInfo: 'あなたの連絡先情報',
+        signedName: 'あなたの一般名でデジタル署名',
+        reasonLabel: '理由',
+        locationLabel: '場所',
+        contactInfoLabel: '連絡先',
+        signedNameLabel: '名前',
+        dateLabel: '日付'
+    },
+    toolTip: {
+        requirements: 'デザイナー領域にレポート項目を追加します。',
+        description: 'このレポート項目はPDF署名を追加するために使用されます。',
+        title: 'PDF署名'
+    }
+};
+EJPDFSignature.Locale['pt-PT'] = {
+    categoryBasicSettings: 'Configurações básicas',
+    basicSettingsLabels: {
+        reason: 'Mostrar motivo',
+        location: 'Mostrar localização',
+        date: 'Mostrar data atual',
+        signatureLabel: 'Assinatura',
+        btnText: 'Desenhar',
+        showdata: 'Mostrar dados',
+        contactInfo: 'Mostrar informações de contacto',
+        signedName: 'Mostrar nome assinado',
+    },
+    designPanelLabels: {
+        reason: 'O seu motivo de assinatura',
+        location: 'A sua localização de assinatura',
+        defaultText: 'Assinatura digital PDF',
+        contactInfo: 'As suas informações de contacto',
+        signedName: 'Assinado digitalmente pelo seu nome comum',
+        reasonLabel: 'Motivo',
+        locationLabel: 'Localização',
+        contactInfoLabel: 'Contacto',
+        signedNameLabel: 'Nome',
+        dateLabel: 'Data'
+    },
+    toolTip: {
+        requirements: 'Adicione um item de relatório à área do designer.',
+        description: 'Este item de relatório é usado para adicionar uma assinatura PDF.',
+        title: 'Assinatura PDF'
+    }
+};
+EJPDFSignature.Locale['ru-RU'] = {
+    categoryBasicSettings: 'Основные настройки',
+    basicSettingsLabels: {
+        reason: 'Показать причину',
+        location: 'Показать местоположение',
+        date: 'Показать текущую дату',
+        signatureLabel: 'Подпись',
+        btnText: 'Рисовать',
+        showdata: 'Показать данные',
+        contactInfo: 'Показать контактную информацию',
+        signedName: 'Показать имя подписавшего',
+    },
+    designPanelLabels: {
+        reason: 'Ваша причина подписи',
+        location: 'Ваше место подписи',
+        defaultText: 'Цифровая подпись PDF',
+        contactInfo: 'Ваша контактная информация',
+        signedName: 'Цифровая подпись вашим общим именем',
+        reasonLabel: 'Причина',
+        locationLabel: 'Местоположение',
+        contactInfoLabel: 'Контакт',
+        signedNameLabel: 'Имя',
+        dateLabel: 'Дата'
+    },
+    toolTip: {
+        requirements: 'Добавьте элемент отчета в область конструктора.',
+        description: 'Этот элемент отчета используется для добавления подписи PDF.',
+        title: 'PDF-подпись'
+    }
+};
+EJPDFSignature.Locale['zh-Hant'] = {
+    categoryBasicSettings: '基本設定',
+    basicSettingsLabels: {
+        reason: '顯示原因',
+        location: '顯示位置',
+        date: '顯示目前日期',
+        signatureLabel: '簽名',
+        btnText: '繪製',
+        showdata: '顯示資料',
+        contactInfo: '顯示聯絡資訊',
+        signedName: '顯示簽名者姓名',
+    },
+    designPanelLabels: {
+        reason: '您的簽署原因',
+        location: '您的簽署位置',
+        defaultText: '數位 PDF 簽名',
+        contactInfo: '您的聯絡資訊',
+        signedName: '以您的通用名稱進行數位簽名',
+        reasonLabel: '原因',
+        locationLabel: '位置',
+        contactInfoLabel: '聯絡方式',
+        signedNameLabel: '姓名',
+        dateLabel: '日期'
+    },
+    toolTip: {
+        requirements: '將報告項目新增至設計區域。',
+        description: '此報告項目用於新增 PDF 簽名。',
+        title: 'PDF 簽名'
     }
 };
