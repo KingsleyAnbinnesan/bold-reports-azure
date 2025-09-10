@@ -16,7 +16,9 @@
         var enableRenderSameTab = @ServerAppConfig.SameTabReportRender.ToString().ToLower();
         var targetValue = enableRenderSameTab ? "_self" : "_blank";
         $.views.helpers({
-            targetValue: targetValue
+            targetValue: function(){
+                return targetValue;
+            }
         });
     </script>
     <environment include="Development,CloudDevelopment">
@@ -112,6 +114,7 @@
                                     <span>[[[Edit]]]</span>
                                 </a>
                             </li>
+ 						{{/if}}
                         {{else}}
                         <li>
                                 <a title="" href="@Url.Action("Reports", "Reports")/{{:ItemId}}/{{:CategoryName}}/{{:Name}}?v={{:VersionNumber}}" target="{{:~targetValue}}"><i class="su su-open"><i class="su-open path1"></i><i class="su-open path2"></i></i><span>[[[Open]]]</span></a>

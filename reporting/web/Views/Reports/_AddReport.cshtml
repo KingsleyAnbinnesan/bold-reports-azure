@@ -148,7 +148,7 @@
                             <tr>
                                 <td class="col-2"><div class="bottom-margin35 float-end">[[[RDL File(s)]]]<span class="mandatory">*</span></div></td>
                                 <td class="col-12">
-                                    <iframe id="report_upload_iframe" class="bottom-margin30" style="height: 35px" src="@Url.Action("UploadReportView", "Reports")" scrolling="no" tabindex="-1"></iframe>
+                                    <iframe id="report_upload_iframe" class="bottom-margin30" style="height: 35px" src="@Url.Action("UploadReportView", "Reports", new { allowMultiple = "true", isEditReport = "false" })" scrolling="no" tabindex="-1"></iframe>
                                     <span id="uploadValidation"></span>
                                 </td>
                             </tr>

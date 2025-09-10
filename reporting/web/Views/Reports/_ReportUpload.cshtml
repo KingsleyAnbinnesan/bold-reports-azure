@@ -1,4 +1,4 @@
-﻿@using Syncfusion.Server.Base.Helpers
+@using Syncfusion.Server.Base.Helpers
 
 @model List<ReportUploadResponse>
 @{
@@ -28,6 +28,11 @@
     </environment>
     <script nonce="@Context.Items["ScriptNonce"]">
         $(function () {
+            var allowSelectMultiple = document.getElementById('multipleUpload').value;
+            if ((allowSelectMultiple == "" || allowSelectMultiple == "false") && window.parent.$("#rdl_filename").val() != "" && window.parent.$("#rdl_filename").val() != undefined) {
+                $("#upload_browse_file").val(window.parent.$("#rdl_filename").val());
+            }
+
             window.parent.parent.$('#report_popup_wrapper').ejWaitingPopup("hide");
             $(document).on("change", "#browse_file", function () {
                 parent.$("#uploadValidation").html("");
@@ -43,11 +48,11 @@
                     $("#upload_browse_file").closest("span").removeClass("has-error");
                     $(".fileUpload").removeClass("error-file-upload");
                     parent.$("#rdl_filename").val(filename);
-                    $("#upload_browse_file").val(filename);
-                    window.parent.$("#rdl_filename").val(filename);
-                    if ((window.parent.$(".edit-field").val() == "") || (window.parent.$(".edit-field").val() == previousRDLFileName)) {
-                    window.parent.$(".edit-field").val(filename.slice(0, -4));
-                    }
+                        $("#upload_browse_file").val(filename);
+                        window.parent.$("#rdl_filename").val(filename);
+                        if ((window.parent.$(".edit-field").val() == "") || (window.parent.$(".edit-field").val() == previousRDLFileName)) {
+                            window.parent.$(".edit-field").val(filename.slice(0, -4));
+                        }
                     window.parent.$(".add-report-form, #edit-report-form").valid();
                     $('#browse_file').attr('title', filename);
                     parent.$("#datasource_list_table").html("");
@@ -62,7 +67,7 @@
                 } else {
                     $("#upload_browse_file").closest("span").addClass("has-error");
                     $("#browse_file").closest('div').addClass("error-file-upload");
-                    parent.$("#uploadValidation").text("[[[Please choose a valid RDL file to upload]]]");
+                        parent.$("#uploadValidation").text("[[[Please choose a valid RDL file to upload]]]");
                     $("#publish_report").attr("disabled", "disabled");
                     $('#browse_file').attr('title', filename);
                 }
@@ -88,7 +93,7 @@
     </script>
 </head>
 <body>
-    <form name="uploadReportForm" id="upload-form" method="post" action="@Url.Action("UploadReport", "Reports")" enctype="multipart/form-data">
+    <form name="uploadReportForm" id="upload-form" method="post" action="@Url.Action("UploadReport", "Reports", new {isEditReport =  @ViewBag.IsEditReport })" enctype="multipart/form-data">
         @Html.AntiForgeryToken()
         <label for="browse_file" class="trigger-file-input-wrapper-report"></label>
         <span>
@@ -96,8 +101,9 @@
         </span>
         <div class="d-flex justify-content-start">
         <div class='col-12 fileUpload btn btn-default'>
-            <span>...</span><input id='browse_file' title="[[[No file selected.]]]" class='browse-button upload-btn' type='file' accept='.rdl' name="file" multiple>
+            <span>...</span><input id='browse_file' title="[[[No file selected.]]]" class='browse-button upload-btn' type='file' accept='.rdl' name="file" @(ViewBag.AllowMultiple == true ? "multiple" : "")>
             <input type="hidden" id='multipleUpload' value="@(ViewBag.IsMultipleUpload.ToString().ToLower())" tabindex="-1">
+            <input type="hidden" id='allow-multiple' value="@(ViewBag.AllowMultiple.ToString().ToLower())" tabindex="-1">
             <input type="hidden" id='tempPath' value='@(ViewBag.TempPath.ToString())' tabindex="-1">
         </div>
         </div>

@@ -335,7 +335,7 @@
                 <div class="dashboard-action-container col-12 no-padding">
                     <div class="col-5 col-lg-5 col-md-7 col-sm-10 no-padding category-info-container" ng-show="!isMobile">
                         <span class="col-12 no-padding report-filter-module" ng-show="!showSearch">
-                            <ul class="report-filter-module ng-scope" ng-if="activeMenu !== 9 && activeMenu !== 2 && activeMenu !== @((int)DisplayCategory.ReportParts)  && activeMenu !== @((int)DisplayCategory.Files) && !hideReportsFiltering">
+                            <ul class="report-filter-module ng-scope" ng-if="activeMenu !== 9 && activeMenu !== @((int)DisplayCategory.ReportParts)  && activeMenu !== @((int)DisplayCategory.Files) && !hideReportsFiltering">
                                 <div class="dashboard-select-all no-padding no-margin" ng-class="{'grid-check-all-active' : reportLayoutView === @((int)ReportLayoutView.Grid),'card-check-all-active' : reportLayoutView === @((int)ReportLayoutView.Card)}" ng-show="!isTablet && !isMobile && activeMenu !== @((int)DisplayCategory.DraftItems)" style="display:none">
                                     @Html.CheckBox("dashboard-list-select-all", false, new { @class = "material-checkbox", @autocomplete = "off", ng_disabled = "totalDashboardCount == 0"})
                                     <label for="dashboard-list-select-all" class="dashboard-select-all-checkbox"></label>
@@ -347,25 +347,25 @@
                                     </a>
                                 </li>
                                 <label id="action-separator" class="sf-nav-separator action-separator"></label>
-                                <li ng-class="{selected : selectedFilter === @((int)DisplayCategory.AllReports)}" ng-click="setSelectedFilter($event, @((int)DisplayCategory.AllReports))">
+                                <li ng-if="activeMenu !== 2" ng-class="{selected : selectedFilter === @((int)DisplayCategory.AllReports)}" ng-click="setSelectedFilter($event, @((int)DisplayCategory.AllReports))">
                                     <a class="dashboard-sort-options prevent-default-action" href="#">
                                         <i class="su su-all-dashboards"></i>
                                         <span class="search-option">[[[All]]]</span>
                                     </a>
                                 </li>
-                                <li ng-class="{selected : selectedFilter ===@((int)DisplayCategory.PublicItems)}" ng-click="setSelectedFilter($event, @((int)DisplayCategory.PublicItems))">
+                                <li ng-if="activeMenu !== 2" ng-class="{selected : selectedFilter ===@((int)DisplayCategory.PublicItems)}" ng-click="setSelectedFilter($event, @((int)DisplayCategory.PublicItems))">
                                     <a class="dashboard-sort-options prevent-default-action" href="#">
                                         <i class="su su-public"></i>
                                         <span class="search-option">[[[Public]]]</span>
                                     </a>
                                 </li>
-                                <li ng-class="{selected : selectedFilter === @((int)DisplayCategory.OwnedByMe)}" ng-click="setSelectedFilter($event, @((int)DisplayCategory.OwnedByMe))">
+                                <li ng-if="activeMenu !== 2" ng-class="{selected : selectedFilter === @((int)DisplayCategory.OwnedByMe)}" ng-click="setSelectedFilter($event, @((int)DisplayCategory.OwnedByMe))">
                                     <a class="dashboard-sort-options prevent-default-action" href="#">
                                         <i class="su su-user-1"></i>
                                         <span class="search-option">[[[Owned by me]]]</span>
                                     </a>
                                 </li>
-                                <li ng-class="{selected : selectedFilter === @((int)DisplayCategory.SharedWithMe)}" ng-click="setSelectedFilter($event, @((int)DisplayCategory.SharedWithMe))">
+                                <li ng-if="activeMenu !== 2" ng-class="{selected : selectedFilter === @((int)DisplayCategory.SharedWithMe)}" ng-click="setSelectedFilter($event, @((int)DisplayCategory.SharedWithMe))">
                                     <a class="dashboard-sort-options prevent-default-action" href="#">
                                         <i class="su su-group-1"></i>
                                         <span class="search-option">[[[Shared with me]]]</span>
@@ -490,7 +490,7 @@
                                 <ul class="dashboard-list-section col-12 no-padding ng-hide" ng-if="activeMenu !== @((int)DisplayCategory.ReportParts)  && activeMenu !== @((int)DisplayCategory.Files)" ng-show="dashboardDataBindComplete && (reportLayoutView === @((int)ReportLayoutView.Card) || selectedFilter === @((int)DisplayCategory.DraftReportParts))">
                                     <li ng-repeat="dashboardItem in dashboardList" class="col-12 no-padding dashboard-tile" my-post-repeat-directive>
                                         <div ng-if="!dashboardItem.IsDraft" class="col-12 no-padding">
-                                            <div class="dashboard-select-list col-1 no-padding prevent-dashboard-navigation">
+                                            <div class="dashboard-select-list col-1 no-padding prevent-dashboard-navigation" ng-class="!dashboardItem.IsDraft ? (dashboardItem.CanDownload ? '' : 'disable-download-checkbox') : ''">
                                                 @Html.CheckBox("{{dashboardItem.Id}}", false, new { @id = "{{dashboardItem.Id}}", @class = "dashboard-select-individual material-checkbox", @autocomplete = "off"})
                                                 <label for="{{dashboardItem.Id}}" ng-if="!isTablet && !isMobile"></label>
                                             <span class="su favorite" data-favorite="{{dashboardItem.IsFavorite}}" ng-click="toggleFavorite($event)" ng-class="!dashboardItem.IsDraft ? (dashboardItem.IsFavorite ? 'su-favorite' : 'su-dis-favorite') : ''" ng-if="!hideFavorite"></span>

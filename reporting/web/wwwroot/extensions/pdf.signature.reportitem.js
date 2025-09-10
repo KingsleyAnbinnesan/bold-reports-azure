@@ -26,8 +26,7 @@ var EJPDFSignature = (function () {
         }
     };
     EJPDFSignature.prototype.renderPDFSignature = function () {
-        var bgColor = (this.customJSON.Style.BackgroundColor === 'Transparent' || this.customJSON.Style.BackgroundColor === '#00ffffff') ? 'White' : this.customJSON.Style.BackgroundColor;
-        this.customItemDiv = this.buildElement('div', 'customitem e-rptdesigner-pdfsign', '', {}, { 'background-color': bgColor });
+        this.customItemDiv = this.buildElement('div', 'customitem e-rptdesigner-pdfsign', '', {}, { 'background-color': this.getBackgroundColor() });
         var isSignedName = this.booleanValue(this.getPropertyValue(this.customJSON.CustomProperties, 'SignedName'));
         var isContactInfo = this.booleanValue(this.getPropertyValue(this.customJSON.CustomProperties, 'ContactInfo'));
         var isReason = this.booleanValue(this.getPropertyValue(this.customJSON.CustomProperties, 'Reason'));
@@ -54,6 +53,11 @@ var EJPDFSignature = (function () {
         else {
             this.clearSign(imgDiv);
         }
+    };
+    EJPDFSignature.prototype.getBackgroundColor = function () {
+        return (this.customJSON && this.customJSON.Style && this.customJSON.Style.BackgroundColor
+            && this.customJSON.Style.BackgroundColor !== 'Transparent' && this.customJSON.Style.BackgroundColor !== '#00ffffff')
+            ? ej.ReportUtil.convertColorFormat(this.customJSON.Style.BackgroundColor, true) : 'white';
     };
     EJPDFSignature.prototype.getPropertyGridItems = function (baseProperties) {
         var itemProperties = [{

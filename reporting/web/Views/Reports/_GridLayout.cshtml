@@ -114,7 +114,11 @@
 </script>
 
 <script nonce="@Context.Items["ScriptNonce"]" type="text/x-jsrender" id="checkbox-row-template">
-    <input type="checkbox" class="dashboard-list-section dashboard-select-individual checkbox-row material-checkbox" data-checked-id="{{:Id}}" id="row-check{{:Id}}" />
+    {{if CanDownload}}
+        <input type="checkbox" class="dashboard-list-section dashboard-select-individual checkbox-row material-checkbox" data-checked-id="{{:Id}}" id="row-check{{:Id}}" />
+    {{else}}
+        <input type="checkbox" class="dashboard-list-section dashboard-select-individual checkbox-row material-checkbox" data-checked-id="{{:Id}}" id="row-check{{:Id}}" disabled/>
+    {{/if}}
     <input name="row-check{{:Id}}" type="hidden" value="false" hidden>
     <label for="row-check{{:Id}}"> </label>
 </script>
@@ -454,7 +458,8 @@
                     templateID: "#checkbox-row-template",
                     textAlign: ej.TextAlign.Center,
                     width: 10,
-                    allowFiltering: false
+                    allowFiltering: false,
+                    visible: (filter.displayCategory != displayCategory.DraftItems)
                 },
                 {
                     template: true,
@@ -527,10 +532,6 @@
         });
     }
 
-    function fnCreate(args) {
-        $("#grid-dashboard-list-select-all").change(headCheckboxOnChange);
-    }
-
     function fnActionBegin(args) {
         this.model.query._params.push({ key: "searchKey", value: filter.searchKey });
 
@@ -559,7 +560,6 @@
         $("[ data-bs-toggle='tooltip']").tooltip();
         var gridObj = $("#items").data("ejGrid");
         $("#grid-dashboard-list-select-all").prop("disabled", false);
-        $("#grid-dashboard-list-select-all").change(headCheckboxOnChange);
         dashboardGrid.totalDashboardCount = gridObj._gridRecordsCount;
         dashboardGrid.doDashboardComplete();
         if (gridObj._gridRecordsCount == 0) {
@@ -608,43 +608,6 @@
         $(".tooltip").not(this).hide();
     });
 
-    function headCheckboxOnChange(e) {
-        gridObj = $("#items").data("ejGrid");
-        if ($("#grid-dashboard-list-select-all").prop("checked") == true) {
-            $(".checkbox-row").prop("checked", true);
-            gridObj.multiSelectCtrlRequest = true;
-            gridObj.selectRows(0, $(".checkbox-row").length + $(".checkbox-row-disabled").length);
-            for (var t = 0; t < $(".checkbox-row-disabled").length; t++) {
-                var checkbox = $(".checkbox-row-disabled");
-                var rowIndex = $($(checkbox[t]).closest("td").parent()).index();
-                gridObj.selectRows(rowIndex);
-            }
-            objectSelected = [];
-            objectSelected = $.extend(true, objectSelected, gridObj._currentJsonData);
-            if (isSafari) {
-                $(".checkbox-header-label").addClass("check");
-            }
-        }
-        else {
-            $(".checkbox-row").prop("checked", false);
-            objectSelected = [];
-            selectedIndex = [];
-            gridObj.clearSelection();
-            if (isSafari) {
-                $(".checkbox-header-label").removeClass("check");
-            }
-        }
-        enabledownloadbutton();
-    }
-    function setHeaderCheckedStatus(gridObj) {
-        if (gridObj.getRows() != null) {
-            if (gridObj.getRows().length === objectSelected.length && objectSelected.length > 0)
-                $("#grid-dashboard-list-select-all").prop("checked", true);
-            else
-                $("#grid-dashboard-list-select-all").prop("checked", false);
-        }
-        enabledownloadbutton();
-    }
     function fnRecordClick(args) {
         gridObj = $("#items").data("ejGrid");
         var isChecked = args.row.find(".checkbox-row").is(":checked");
@@ -680,9 +643,6 @@
         } else {
             $(".download-icon").hide();
         }
-    }
-    function refreshTemplate(args) {
-        $("#grid-dashboard-list-select-all").change(headCheckboxOnChange);
     }
 
 </script>
