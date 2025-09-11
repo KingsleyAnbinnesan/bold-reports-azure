@@ -140,7 +140,7 @@
           ],
           "properties": {
             "RepoUrl": "https://github.com/KingsleyAnbinnesan/bold-reports-azure.git",
-            "branch": "releasetesting",
+            "branch": "newreleasetesting",
             "IsManualIntegration": true
           }
         },
