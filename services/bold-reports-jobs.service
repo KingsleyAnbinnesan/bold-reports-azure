@@ -1,0 +1,17 @@
+[Unit]
+Description=Bold Reports Jobs App running on Ubuntu
+
+[Service]
+WorkingDirectory=/var/www/bold-services/application/reporting/jobs
+ExecStart=/var/www/bold-services/dotnet/dotnet /var/www/bold-services/application/reporting/jobs/Syncfusion.Server.Jobs.dll --urls=http://localhost:6552
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=bold-reports-jobs
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
