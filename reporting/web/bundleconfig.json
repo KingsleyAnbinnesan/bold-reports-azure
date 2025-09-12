@@ -38,7 +38,7 @@
       "wwwroot/Scripts/Notification/user-notification.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-ElsRww8v8fNBt9rNdnOD5maibpLuM4FjPRKUXZ4pSRZrgUqUpkIJ4XINZqnkRxYd"
+    "integrity": "sha384-e7JmXp8qKQo8636d2Wx5ZuWk2vgEW7FfKHJ4IAEchB46HeGhzQgY+0NtxAGNBztB"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/connector-page-layout.min.js",
@@ -56,7 +56,7 @@
       "wwwroot/Scripts/essentialjs/ej.waitingpopup.min.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-A/pV0h6WK4oPR/onsN5FjIsla1w6QdLo+I/f/5tTmLUpfjUQwLE2lSrBBJDqeyrm"
+    "integrity": "sha384-NK53Xw2cp+iQmxG7AT+daKiv1NW0ypK4mJvRkVA3xtNinj1veDde/wSQG839VNmC"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/layout-mobile.min.js",
@@ -141,7 +141,7 @@
       "wwwroot/Styles/scss/pages/Dialogs.css",
       "wwwroot/Styles/scss/pages/Components/Buttons.css"
     ],
-    "integrity": "sha384-ldAl2KbpH2+ZfLSzRyNdHByVLBvzsBwjqWOAP1z1eBtZ2KMmkc6lC4DcICu/SK+t"
+    "integrity": "sha384-fdblj65yYH3jAKC8ojDmTVLEz1oPRklWqQsIIQ2MD9PQbyFjmM7ghj89VfU77y3q"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/add-report.min.js",
@@ -172,7 +172,7 @@
       "wwwroot/Scripts/essentialJS/i18n/ej.culture.de-DE.min.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-5OoYMkBXUOBgtSU9RiCUtHUhhZa7Edo1lLvTR996ntCn/ilrRSRKY3Q8y6SWh8iQ"
+    "integrity": "sha384-LMhnXyGEpfpy4vGqMZbo5eIyA4RXqm4LEP6oy7DH1X7Z8b74avP7Bn2vHhFOGjJo"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/upload-report.min.js",
@@ -196,7 +196,7 @@
       "wwwroot/Styles/scss/pages/Dialogs.css",
       "wwwroot/Styles/scss/pages/Components/Buttons.css"
     ],
-    "integrity": "sha384-uaqbZ/czY5/v5DwAVzgxHyXfvKJnytweu1HZi3ANHZ7qyF8Telv0sWM2Q8866Kt8"
+    "integrity": "sha384-oEWzvuRU+ToHY5Mmw98l/by9IKcCyaS+1FtJYq0meycg/uBk6Zpx6t3EicGRWT5W"
   },
   {
     "outputFileName": "wwwroot/cdn/css/select-datasource.min.css",
@@ -794,7 +794,7 @@
       "wwwroot/Scripts/essentialjs/ej.waitingpopup.min.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-dyMSat+cYhsUGF5xpOnLq0L9cRxkukUSvqcZdw0zvCW61fGiAem2TcC/gorkQL2w"
+    "integrity": "sha384-tvBpCIGprnlfb5PYMT1EpGCuR0ma2kjwvZdTuEvAmxv4qxkbv1YpzX0gtGK6WIE8"
   },
   {
     "outputFileName": "wwwroot/cdn/css/edit-files.min.css",
@@ -941,7 +941,7 @@
       "wwwroot/Styles/scss/pages/Scheduler.css",
       "wwwroot/Styles/scss/pages/ProcessOptionScheduler.css"
     ],
-    "integrity": "sha384-S5ZuU7FmBxeAkRe9oDZIst0Kht+a/Am/dq0B0skWtPBV4Tjhr193zgfQzup1Avmj"
+    "integrity": "sha384-w7OVIFN2ccY3OWfQzLXeuMQC+1Tz0Bo+X9fIHyTV8pQ/1fRwazngi8aiilCyNw57"
   },
   {
     "outputFileName": "wwwroot/cdn/css/report-process-options.min.css",
@@ -962,7 +962,7 @@
       "wwwroot/Styles/scss/pages/Scheduler.css",
       "wwwroot/Styles/scss/pages/ProcessOptionScheduler.css"
     ],
-    "integrity": "sha384-1NIChQ1qFRak8bXLCNC2phWi4Hlctbd1RyCTHjsMj9RDEG/NdWA+RJhFh1RKpIk5"
+    "integrity": "sha384-Tn7MEqv6qTRLrWgpVyZTsizs3XOKqzZDlLDyQKcFj7d9MRDLc9koxHeXT0KnlaH1"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/report-process-options.min.js",
@@ -1079,7 +1079,7 @@
       "wwwroot/Scripts/launcher/launcher.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-3p9v12EEuS1Wpg8Lc53AtjX1wg00Gz9Sp6ZV/f3HKZjcPPQg9x+wiVU8gVQwl0zc"
+    "integrity": "sha384-Zcsq4tQQQBFm0iUbyGtql0fNk5Krkn6upTaaLCCuMEGQ+uV0UPcqiIZIueBsmCXn"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/itemaction.min.js",
@@ -2168,7 +2168,7 @@
       "wwwroot/Scripts/Bootstrap/bootstrap.bundle.min.js",
       "wwwroot/Scripts/Administration/DeploymentReports.js"
     ],
-    "integrity": "sha384-+Wghf/FeszDrkCsJEZabmksQ9K/6eQq4yS6jjD5rdEyJJYv0wdZQri2u3V/zrvK3"
+    "integrity": "sha384-235N8auHHAYyqDpclzmDSqsgTcvzYx0OQkUcP7Z8XlgAMCr8c1x4KpjY7cK5AFh6"
   },
   {
     "outputFileName": "wwwroot/cdn/css/embed-settings.min.css",
@@ -2625,7 +2625,7 @@
       "wwwroot/Scripts/Notification/user-notification.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-jWci5DRhYlPnNPiW3Ep+HfU/y3PaEsHS7xMKGF9O16ONcbA39eXh3+LIWVtGCeWQ"
+    "integrity": "sha384-D0sfjbtLPYL5p902QLkaIjGg2eFPXNA5GEyYhuqgqCTvyhThqLn9In/D4oC0v0om"
   },
   {
     "outputFileName": "wwwroot/cdn/css/notification-listing.min.css",

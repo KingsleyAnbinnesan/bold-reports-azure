@@ -5,6 +5,7 @@
     var hideHeader = Model.CustomScheduleOptions.HideScheduleTemplateHeader;
     var hideFooter = Model.CustomScheduleOptions.HideScheduleTemplateFooter;
     var hideReportLink = Model.CustomScheduleOptions.HideReportLink;
+    var isHideGuidInUrl = Model.IsHideGuidInUrl;
 }
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
 <html xmlns='http://www.w3.org/1999/xhtml'>
@@ -242,8 +243,12 @@
                                                                     @if(!hideReportLink)
                                                                     {
                                                                         <span>
-                                                                            The schedule @Model.ScheduleName exported <a href='@Model.BaseUrl/reports/@Model.ItemId/@Model.CategoryName/@Model.ReportName' style='color: #4a90e2;font-size: 14px;sans-serif;text-decoration: none;'>@Model.ReportName</a> to the following directory path:
-                                                                        </span>                                                                  
+                                                                            @{
+                                                                                var reportLink = isHideGuidInUrl ? @Model.BaseUrl.TrimEnd('/') + "/reports/" + @Model.CategoryName + "/" + @Model.ReportName
+                                                                                : @Model.BaseUrl.TrimEnd('/') + "/reports/" + @Model.ItemId + "/" + @Model.CategoryName + "/" + @Model.ReportName;
+                                                                            }
+                                                                            The schedule @Model.ScheduleName exported <a href='@reportLink' style='color: #4a90e2;font-size: 14px;sans-serif;text-decoration: none;'>@Model.ReportName</a> to the following directory path:
+                                                                        </span>
                                                                         <span>
                                                                             @Model.ExportPath.
                                                                         </span>

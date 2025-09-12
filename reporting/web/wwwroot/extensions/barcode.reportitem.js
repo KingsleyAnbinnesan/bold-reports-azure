@@ -1,10 +1,3 @@
-var BarcodeRotation;
-(function (BarcodeRotation) {
-    BarcodeRotation["None"] = "None";
-    BarcodeRotation["Rotate90Degrees"] = "Rotate90Degrees";
-    BarcodeRotation["Rotate180Degrees"] = "Rotate180Degrees";
-    BarcodeRotation["Rotate270Degrees"] = "Rotate270Degrees";
-})(BarcodeRotation || (BarcodeRotation = {}));
 var EJBarcode = (function () {
     function EJBarcode(rptDesigner) {
         this.customJSON = null;
@@ -93,7 +86,7 @@ var EJBarcode = (function () {
                 this.updatePropertyVal(name, (newValue === true) ? 'true' : 'false');
                 break;
             case 'BarcodeRotation':
-                this.updatePropertyVal(name, newValue ? newValue : BarcodeRotation.None);
+                this.updatePropertyVal(name, newValue ? newValue : 'None');
                 break;
         }
     };
@@ -157,10 +150,10 @@ var EJBarcode = (function () {
                         'ItemId': 'barcoderotation',
                         'Name': 'BarcodeRotation',
                         'DisplayName': 'barcodeRotationLabel',
-                        'Value': this.getPropertyVal('BarcodeRotation'),
+                        'Value': this.getBarcodeRotation(this.getPropertyVal('BarcodeRotation')),
                         'ItemType': 'DropDown',
                         'EnableExpression': false,
-                        'ValueList': this.getBarcodeRotation()
+                        'ValueList': this.getRotationLevel()
                     }
                 ]
             }
@@ -189,12 +182,18 @@ var EJBarcode = (function () {
         this.customJSON.CustomProperties.push(new ej.ReportModel.CustomProperty(name, val));
     };
     EJBarcode.prototype.updatePropertyVal = function (propertyName, value) {
+        var isUpdated = false;
         if (this.customJSON.CustomProperties && this.customJSON.CustomProperties.length > 0) {
             for (var index = 0; index < this.customJSON.CustomProperties.length; index++) {
                 if (this.customJSON.CustomProperties[index].Name === propertyName) {
                     this.customJSON.CustomProperties[index].Value = value;
+                    isUpdated = true;
+                    break;
                 }
             }
+        }
+        if (!isUpdated) {
+            this.setPropertyVal(propertyName, value);
         }
     };
     EJBarcode.prototype.getReportItemJson = function () {
@@ -203,14 +202,14 @@ var EJBarcode = (function () {
             this.setPropertyVal('BarcodeValue', '00000');
             this.setPropertyVal('BarcodeType', 'Code39');
             this.setPropertyVal('DisplayBarcodeText', 'true');
-            this.setPropertyVal('BarcodeRotation', BarcodeRotation.None);
+            this.setPropertyVal('BarcodeRotation', 'None');
         }
         return this.customJSON;
     };
-    EJBarcode.prototype.getBarcodeRotation = function () {
+    EJBarcode.prototype.getRotationLevel = function () {
         return [
             {
-                text: 'none', value: 'None'
+                text: 'rotationnone', value: 'None'
             },
             {
                 text: 'rotate90degrees', value: 'Rotate90Degrees'
@@ -222,6 +221,16 @@ var EJBarcode = (function () {
                 text: 'rotate270degrees', value: 'Rotate270Degrees'
             }
         ];
+    };
+    EJBarcode.prototype.getBarcodeRotation = function (rotation) {
+        var rotationVal = rotation ? rotation.toLowerCase() : '';
+        switch (rotationVal) {
+            case 'none': return 'None';
+            case 'rotate90degrees': return 'Rotate90Degrees';
+            case 'rotate180degrees': return 'Rotate180Degrees';
+            case 'rotate270degrees': return 'Rotate270Degrees';
+        }
+        return 'None';
     };
     EJBarcode.prototype.setReportItemJson = function (reportItem) {
         this.customJSON = reportItem;
@@ -269,11 +278,11 @@ var EJBarcode = (function () {
                     return barcodeLocale.barcodeRotationLabel;
                 }
                 return defaultLocale.barcodeRotationLabel;
-            case 'none':
-                if (barcodeLocale && barcodeLocale.barcodeRotation.none) {
-                    return barcodeLocale.barcodeRotation.none;
+            case 'rotationnone':
+                if (barcodeLocale && barcodeLocale.barcodeRotation.rotationNone) {
+                    return barcodeLocale.barcodeRotation.rotationNone;
                 }
-                return defaultLocale.barcodeRotation.none;
+                return defaultLocale.barcodeRotation.rotationNone;
             case 'rotate90degrees':
                 if (barcodeLocale && barcodeLocale.barcodeRotation.rotate90degrees) {
                     return barcodeLocale.barcodeRotation.rotate90degrees;
@@ -325,7 +334,7 @@ EJBarcode.Locale['en-US'] = {
     categoryBasicSettings: 'Basic Settings',
     barcodeRotationLabel: 'Rotation',
     barcodeRotation: {
-        none: 'None',
+        rotationNone: 'None',
         rotate90degrees: '90',
         rotate180degrees: '180',
         rotate270degrees: '270'
@@ -342,7 +351,7 @@ EJBarcode.Locale['fr-FR'] = {
     textVisibility: 'Visibilite du texte',
     barcodeRotationLabel: 'Rotation',
     barcodeRotation: {
-        none: 'Aucun',
+        rotationNone: 'Aucun',
         rotate90degrees: '90',
         rotate180degrees: '180',
         rotate270degrees: '270'
@@ -360,7 +369,7 @@ EJBarcode.Locale['he-IL'] = {
     textVisibility: 'הצגת טקסט',
     barcodeRotationLabel: 'סיבוב',
     barcodeRotation: {
-        none: 'ללא',
+        rotationNone: 'ללא',
         rotate90degrees: '90',
         rotate180degrees: '180',
         rotate270degrees: '270'
@@ -378,7 +387,7 @@ EJBarcode.Locale['ja-JP'] = {
     textVisibility: 'テキストの表示',
     barcodeRotationLabel: '回転',
     barcodeRotation: {
-        none: 'なし',
+        rotationNone: 'なし',
         rotate90degrees: '90',
         rotate180degrees: '180',
         rotate270degrees: '270'
@@ -396,7 +405,7 @@ EJBarcode.Locale['pt-PT'] = {
     textVisibility: 'Visibilidade do texto',
     barcodeRotationLabel: 'Rotação',
     barcodeRotation: {
-        none: 'Nenhuma',
+        rotationNone: 'Nenhuma',
         rotate90degrees: '90',
         rotate180degrees: '180',
         rotate270degrees: '270'
@@ -414,7 +423,7 @@ EJBarcode.Locale['ru-RU'] = {
     textVisibility: 'Отображение текста',
     barcodeRotationLabel: 'Вращение',
     barcodeRotation: {
-        none: 'Нет',
+        rotationNone: 'Нет',
         rotate90degrees: '90',
         rotate180degrees: '180',
         rotate270degrees: '270'
@@ -432,7 +441,7 @@ EJBarcode.Locale['zh-Hans'] = {
     textVisibility: '文本可见性',
     barcodeRotationLabel: '旋转',
     barcodeRotation: {
-        none: '无',
+        rotationNone: '无',
         rotate90degrees: '90',
         rotate180degrees: '180',
         rotate270degrees: '270'
@@ -450,7 +459,7 @@ EJBarcode.Locale['zh-Hant'] = {
     textVisibility: '文字可見性',
     barcodeRotationLabel: '旋轉',
     barcodeRotation: {
-        none: '無',
+        rotationNone: '無',
         rotate90degrees: '90',
         rotate180degrees: '180',
         rotate270degrees: '270'

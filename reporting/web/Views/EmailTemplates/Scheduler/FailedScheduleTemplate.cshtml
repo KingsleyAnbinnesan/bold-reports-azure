@@ -5,6 +5,7 @@
     var hideHeader = Model.CustomScheduleOptions.HideScheduleTemplateHeader;
     var hideFooter = Model.CustomScheduleOptions.HideScheduleTemplateFooter;
     var hideReportLink = Model.CustomScheduleOptions.HideReportLink;
+    var isHideGuidInUrl = Model.IsHideGuidInUrl;
 }
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
 <html xmlns='http://www.w3.org/1999/xhtml'>
@@ -309,7 +310,8 @@
                                                                     {
                                                                         <span>
                                                                             @{
-                                                                                var reportLink = @Model.BaseUrl.TrimEnd('/') + "/reports/" + @Model.ItemId + "/" + @Model.CategoryName + "/" + @Model.ReportName;
+                                                                                var reportLink = isHideGuidInUrl ? @Model.BaseUrl.TrimEnd('/') + "/reports/" + @Model.CategoryName + "/" + @Model.ReportName
+                                                                                : @Model.BaseUrl.TrimEnd('/') + "/reports/" + @Model.ItemId + "/" + @Model.CategoryName + "/" + @Model.ReportName;
                                                                             }
                                                                             Schedule-
                                                                             @Model.ScheduleName has failed to export

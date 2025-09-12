@@ -337,7 +337,7 @@
                         <span class="col-12 no-padding report-filter-module" ng-show="!showSearch">
                             <ul class="report-filter-module ng-scope" ng-if="activeMenu !== 9 && activeMenu !== @((int)DisplayCategory.ReportParts)  && activeMenu !== @((int)DisplayCategory.Files) && !hideReportsFiltering">
                                 <div class="dashboard-select-all no-padding no-margin" ng-class="{'grid-check-all-active' : reportLayoutView === @((int)ReportLayoutView.Grid),'card-check-all-active' : reportLayoutView === @((int)ReportLayoutView.Card)}" ng-show="!isTablet && !isMobile && activeMenu !== @((int)DisplayCategory.DraftItems)" style="display:none">
-                                    @Html.CheckBox("dashboard-list-select-all", false, new { @class = "material-checkbox", @autocomplete = "off", ng_disabled = "totalDashboardCount == 0"})
+                                    @Html.CheckBox("dashboard-list-select-all", false, new { @class = "material-checkbox", @autocomplete = "off", ng_if = "activeMenu !== 2 || totalDashboardCount != 0", ng_disabled = "totalDashboardCount == 0" })
                                     <label for="dashboard-list-select-all" class="dashboard-select-all-checkbox"></label>
                                 </div>
                                 <li class="download-icon selected" ng-click="downloadBulkReport()" style="display:none">
